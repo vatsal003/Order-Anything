@@ -1,0 +1,937 @@
+{
+	"info": {
+		"_postman_id": "ad2a540a-9d84-43ba-ab45-5acc053368f2",
+		"name": "Order Anything",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Authentication",
+					"item": [
+						{
+							"name": "Signup",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"if (pm.response.code === 200) {\r",
+											"    pm.environment.set('authToken',pm.response.json().token)\r",
+											"\r",
+											"}"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"number\":\"3333333331\",\r\n    \"password\":\"1234567\",\r\n    \"name\":\"Jay\",\r\n    \"isDeliveryPerson\":false,\r\n    \"isAdmin\":true\r\n\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/users/signup",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"users",
+										"signup"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "login",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"if (pm.response.code === 200) {\r",
+											"    pm.environment.set('authToken',pm.response.json().token)\r",
+											"\r",
+											"}"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"number\":\"9999999999\",\r\n    \"password\":\"1234567\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/users/login",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"users",
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "logout",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/users/logout",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"users",
+										"logout"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "logout all",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/users/logoutAll",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"users",
+										"logoutAll"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "me",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/users/me",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"users",
+										"me"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Order",
+					"item": [
+						{
+							"name": "checkout",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{url}}/order/checkout",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"order",
+										"checkout"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "My order",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/order/myOrder/6145c5c49249cd4df5491916",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"order",
+										"myOrder",
+										"6145c5c49249cd4df5491916"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "my current orders",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/order/myCurrentOrders",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"order",
+										"myCurrentOrders"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "my delivered orders",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/order/myDeliveredOrders",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"order",
+										"myDeliveredOrders"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "my orders by stage",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/order/myOrdersByStage/Delivered",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"order",
+										"myOrdersByStage",
+										"Delivered"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Add to cart",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"item\":\"6145b98ddce4b5f394f13a31\",\r\n    \"quantity\":5\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/users/addToCart",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"users",
+								"addToCart"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remove from cart",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"item\":\"6145b575dce4b5f394f139f3\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/users/removeFromCart",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"users",
+								"removeFromCart"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "View cart",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/users/viewCart",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"users",
+								"viewCart"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add quantity",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"item\":\"6145b575dce4b5f394f139f3\",\r\n    \"quantity\":7\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/users/addQuantityToCart",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"users",
+								"addQuantityToCart"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "remove quantity",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"item\":\"6145b575dce4b5f394f139f3\",\r\n    \"quantity\":100\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/users/removeQuantityToCart",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"users",
+								"removeQuantityToCart"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Admin",
+			"item": [
+				{
+					"name": "Populate database",
+					"item": [
+						{
+							"name": "add address",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"flat_street\":\"RK\",\r\n    \"locality\":\"AWS road\",\r\n    \"state\":\"Karnataka\",\r\n    \"pincode\":\"233456\",\r\n    \"latitude\":\"13.15\",\r\n    \"longitude\":\"130.156\",\r\n    \"city\":\"Manglore\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/admin/addAddress",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"addAddress"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "add items",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"addresses\":[\"6145b863dce4b5f394f13a10\",\"6145b843dce4b5f394f13a0a\",\"6145b5b8dce4b5f394f139ff\"],\r\n    \"name\":\"Paper\",\r\n    \"category\":\"6145b593dce4b5f394f139f9\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/admin/addItem",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"addItem"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "add category",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"category\":\"Stationary\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/admin/addCategory",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"addCategory"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Get orders",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/admin/order/6145c66c7ef999e34feae012",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"admin",
+								"order",
+								"6145c66c7ef999e34feae012"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get unassigned orders",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/admin/checkUnassignedOrders/Task%20Created",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"admin",
+								"checkUnassignedOrders",
+								"Task%20Created"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get assigned orders",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/admin/checkAssignedOrders/Task%20Created",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"admin",
+								"checkAssignedOrders",
+								"Task%20Created"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get Delivery person",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/admin/deliveryPersons",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"admin",
+								"deliveryPersons"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Assign delivery person",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"orderid\":\"614647f0c366a4e713eacaa2\",\r\n    \"delivery_person\":\"6145bfa85eeeb89718a417aa\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/admin/assigndeliveryPerson",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"admin",
+								"assigndeliveryPerson"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "company",
+			"item": [
+				{
+					"name": "Get addresses",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/company/getAddresses",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"company",
+								"getAddresses"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get address by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/company/getAddress/614512780a24b5237a053d78",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"company",
+								"getAddress",
+								"614512780a24b5237a053d78"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get categories",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/company/getCategories",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"company",
+								"getCategories"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get order status",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/company/orderStatus",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"company",
+								"orderStatus"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get items by categories",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/company/getItems/6145127d0a24b5237a053d7d",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"company",
+								"getItems",
+								"6145127d0a24b5237a053d7d"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Delivery person",
+			"item": [
+				{
+					"name": "Current orders",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/delivery/myCurrentOrders",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"delivery",
+								"myCurrentOrders"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "My orders by stage",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/delivery/myOrdersByStage/Task%20Created",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"delivery",
+								"myOrdersByStage",
+								"Task%20Created"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "iTEMS Picked",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"orderid\":\"614647f0c366a4e713eacaa2\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/delivery/itemsPicked",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"delivery",
+								"itemsPicked"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Order Enroute",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"orderid\":\"6145c66c7ef999e34feae012\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/delivery/orderEnroute",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"delivery",
+								"orderEnroute"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Order Delivered",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"orderid\":\"6145c66c7ef999e34feae012\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/delivery/orderDelivered",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"delivery",
+								"orderDelivered"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Order Canceled",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"orderid\":\"6145c66c7ef999e34feae012\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/delivery/orderCanceled",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"delivery",
+								"orderCanceled"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{authToken}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
