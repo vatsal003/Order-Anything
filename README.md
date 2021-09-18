@@ -49,7 +49,3 @@ Creating order from customer [Add to cart from available items and specify quant
 Admin can see orders (with status filter) and assign delivery person [View all delivery persons and orders, then assign order to delivery person ]
 Driver can update order Status [View all available statuses and update it for any order id]
 
-
-Kindly keep in mind the following parameters -
-Database Structure (Points for creating an optimised structure which reduces joins and is easy to query)
-Best practices (Points for following good practices for authentication, database, project structure and coding in general)
